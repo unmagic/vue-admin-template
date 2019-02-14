@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
           next()
         }).catch((err) => {
           store.dispatch('FedLogOut').then(() => {
-            Message.error(err || 'Verification failed, please login again')
+            Message.error(err.message || 'Verification failed, please login again')
             next({ path: '/' })
           })
         })
